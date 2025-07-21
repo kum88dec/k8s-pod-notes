@@ -1,2 +1,30 @@
 # k8s-pod-notes
 pod-notes
+
+POD-YAML file:
+
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: pradeep
+spec:
+  containers:
+    - name: nginx
+      image: nginx:1.14.2
+      ports:
+        - containerPort: 80
+
+POD Commands:
+Creation :  kubectl apply -f pod.yml
+Deletion :  kubectl delete pod pradeep
+Logs     :  kubectl logs pradeep
+Full info Logs:  kubectl describe pod pradeep
+Info of Pods: kubectl get pods
+Info more info: kubectl get pods -o wide
+
+        
+
+
+
+
+        
