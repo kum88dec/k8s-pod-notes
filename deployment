@@ -31,4 +31,17 @@ kubectl get all
 kubectl get all -A 
 
 
+kubectl apply -f deployment.yml
+
+
+kubectl get pods
+kubectl delete pod pradeep-deployment-647677fc66-ztsw4==>even though deleted, 
+it will revert to desired state
+
+kubectl get pods -o wide
+kubectl get pods -o wide
+==>we can  change the repicaset in deployment.yaml and then apply the changes as below
+kubectl apply -f .\deployment.yml
+kubectl get pods -o wide
+kubectl get rs
 
