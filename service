@@ -1,5 +1,5 @@
 Purpose of Service:
-1. Load balancing 
+1. Load balancing that is checked by means of Load sharing using Kubeshark
 2. Service Discovery
 3. Exposing the application to outside world
 
