@@ -1,1 +1,43 @@
+Purpose of Service:
+1. Load balancing 
+2. Service Discovery
+3. Exposing the application to outside world
 
+Service.yml:
+===========
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-django-app-service
+spec:
+  type: NodePort
+  selector:
+    app: sample-pradeep-app--------------------------------------> Should be same as the label in Deployment 
+  ports:
+    - port: 80
+      targetPort: 8000
+      nodePort: 30007
+==================================================================
+Deployment.yml
+============
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-pradeep-app
+  labels:
+    app: sample-pradeep-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sample-pradeep-app
+  template:
+    metadata:
+      labels:
+        app: sample-pradeep-app
+    spec:
+      containers:
+      - name: sample-pradeep-app
+        image: kum88dec/python-web-app-demo:v1
+        ports:
+        - containerPort: 8000
